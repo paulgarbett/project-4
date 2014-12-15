@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
 
+	skip_before_filter :authorize
+
+
   def new
   end
 
@@ -23,5 +26,5 @@ class SessionsController < ApplicationController
       reset_session
       redirect_to root_path, notice: "Logged out!"
   end
-  
+
 end
