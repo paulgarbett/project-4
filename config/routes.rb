@@ -4,10 +4,13 @@ PhotoHelper::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
   resources :sessions
-  resources :users
-  resources :photos
+  resources :users, only: [:index, :new, :create]
+  resources :photos, only: [:new, :create]
+  resources :posts
 
-  root 'users#index'
+    root 'home#index'
+
+  # root 'users#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
