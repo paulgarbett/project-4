@@ -1,15 +1,24 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
 
-  <% @posts.each do |p| %>
+<div class="container">
+	<h1>My Posts</h1>
+	<p>All the posts that I have made.</p>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="thumbnail">
+						<% @posts.each do |p| %>
+				  	<h2><%= p.title %></h2><br>
+				  	<%= image_tag p.image.url %><br>
 
-  	Title: <%= p.title %><br>
-  	Image: <%= image_tag p.image.url %>
+				  	<%= link_to "Edit Post", edit_post_path(p) %>
+				  	<!-- p acts as post by user id -->
+				  	<%= link_to "View Post", p %>
 
-  	<%= link_to "Edit Post", edit_post_path(p) %>
-  	<!-- p acts as post by user id -->
-  	<%= link_to "View Post", p %>
+				  	<% end %>
 
-  <% end %>
+				</div>
+			</div>
+		</div>
+  </div>
+
 
   <%= link_to "New Post", new_post_path %>

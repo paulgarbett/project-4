@@ -1,6 +1,15 @@
-<%= @post.title %>
-<%= @post.description %>
-<%= image_tag @post.image.url %>
-<%# @post.comments.each do |c| %>
-	<%#= "Pending Comments" %>
-<%# end %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2><%= @post.title %></h2><br>
+			
+			<%= image_tag @post.image.url %>
+			<p><%= @post.description %></p>
+
+			<%# @post.comments.each do |c| %>
+				<%#= "Pending Comments" %>
+			<%# end %>
+		</div>
+	</div>
+</div>
