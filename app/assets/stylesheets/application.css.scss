@@ -14,10 +14,19 @@
 
  @import 'bootstrap';
 
+  body {
+ 	font-size: 100%;
+ 	background-color: #ececec;
+ }
+
+
  .navbar {
  	border-radius: 0px;
  }
 
+
+
  .thumbnail {
  	padding: 20px;
  }
+
