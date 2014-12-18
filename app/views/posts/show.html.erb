@@ -7,9 +7,17 @@
 			<%= image_tag @post.image.url %>
 			<p><%= @post.description %></p>
 
-			<%# @post.comments.each do |c| %>
-				<%#= "Pending Comments" %>
-			<%# end %>
+			<h4>Comments</h4>
+		   <% @post.comments.each do |comment| %>
+		      <%= comment.body %>
+			<% end %>
+
+			<%= form_tag comments_path do %>
+			   <%= text_field_tag :body %><br>
+ 				 <%= hidden_field_tag :post_id, @post.id %>
+			   <%= submit_tag "Comment" %>
+		  <% end %>
+
 		</div>
 	</div>
 </div>
