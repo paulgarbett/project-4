@@ -25,10 +25,16 @@ class PostsController < ApplicationController
   end
 
   def update
+    post = Post.find(params[:id])
+    if post.update_attributes(post_params)
+      redirect_to posts_path
+    else
+      render 'edit'
+    end
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.find(:all, :order => "created_at") 
   end
 
   def comment

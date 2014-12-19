@@ -6,22 +6,31 @@
 
 
 				<h2><%= @post.title %></h2><br>
+
 				
 				<%= image_tag @post.image.url %>
+				<div class="thumbnail-body">
+					<h1>About This Photo</h1>
+					<p><%= @post.description %></p>
+				</div>
 
-				<h1>About This Photo</h1>
-				<p><%= @post.description %></p>
 
 				<h4>Suggestions:</h4>
-			   <% @post.comments.each do |comment| %>
-			      <%= comment.body %><br>
-				<% end %>
 
+				
+			   <% @post.comments.each do |comment| %>
+			   <div class="thumbnail-suggestion">
+			      <i>"<%= comment.body %>"</i><br>
+				 </div>
+				 <% end %>
+
+			
 				<%= form_tag comments_path do %><br>
-				   <%= text_area_tag :body %><br>
+				   <%= text_area_tag :body, nil, placeholder: "Enter your suggestions...", class: "form-control"  %>
 	 				 <%= hidden_field_tag :post_id, @post.id %><br>
-				   <%= submit_tag "Make a Suggestion" %><br>
+				   <%= submit_tag "Submit", class: "btn btn-primary btn-md" %><br>
 			  <% end %>
+
 
 
 			</div>
