@@ -4,22 +4,26 @@
 		<div class="col-md-12">
 			<div class="thumbnail">
 
-			<h2><%= @post.title %></h2><br>
-			
-			<%= image_tag @post.image.url %>
-			<h1>About This Photo</h1>
-			<p><%= @post.description %></p>
 
-			<h4>Suggestions:</h4>
-		   <% @post.comments.each do |comment| %>
-		      <%= comment.body %><br>
-			<% end %>
+				<h2><%= @post.title %></h2><br>
+				
+				<%= image_tag @post.image.url %>
 
-			<%= form_tag comments_path do %><br>
-			   <%= text_area_tag :body %><br>
- 				 <%= hidden_field_tag :post_id, @post.id %><br>
-			   <%= submit_tag "Make a Suggestion" %><br>
-		  <% end %>
+				<h1>About This Photo</h1>
+				<p><%= @post.description %></p>
+
+				<h4>Suggestions:</h4>
+			   <% @post.comments.each do |comment| %>
+			      <%= comment.body %><br>
+				<% end %>
+
+				<%= form_tag comments_path do %><br>
+				   <%= text_area_tag :body %><br>
+	 				 <%= hidden_field_tag :post_id, @post.id %><br>
+				   <%= submit_tag "Make a Suggestion" %><br>
+			  <% end %>
+
+
 			</div>
 		</div>
 	</div>

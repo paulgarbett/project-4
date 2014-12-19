@@ -6,6 +6,8 @@ gem 'binding_of_caller'
 
 gem "paperclip", "~>4.2"
 
+gem 'aws-sdk'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 

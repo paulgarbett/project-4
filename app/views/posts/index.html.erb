@@ -1,7 +1,15 @@
 
 <div class="container">
-	<h1>My Posts</h1>
-	<p>All the posts that I have made.</p>
+	<div class="row">
+		<div class="col-md-9">
+			<h1>MY POSTS</h1>
+		</div>
+		<div class="col-md-3">
+			<%= link_to "New Post", new_post_path %>
+		</div>
+	</div>
+	  
+
 		<div class="row">
 
 			<% @posts.each do |p| %>
@@ -11,17 +19,18 @@
 			  	<h2><%= p.title %></h2><br>
 			  	<%= image_tag p.image.url %><br>
 
-			  	<%= link_to "Edit Post", edit_post_path(p) %>
+			  	<%= link_to "Edit Post", edit_post_path(p) %>  |
 			  	<!-- p acts as post by user id -->
-			  	<%= link_to "View Post", p %>
+			  	<%= link_to "View Post", p %> |
+
+			  	<%= link_to "Delete Post", post_path(p), :method => :delete %>
 
 				</div>
 			</div>
 			
 			<% end %>
-
 		</div>
-		  <%= link_to "New Post", new_post_path %>
+
   </div>
 
 
